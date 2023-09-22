@@ -752,7 +752,7 @@ const dba = [
   },
 ];
 
-// SCHEMAT WYGLĄDA TAK
+// PRZYKLADOWY SCHEMAT WYGLĄDA TAK
 
 // const schema = [
 //   {
@@ -766,6 +766,8 @@ const dba = [
 //       followerCount: 6100,
 //       heartCount: 95900,
 //       videoCount: 116,
+//       itdescription: "jakis string",
+//       tags: "",
 //     },
 //   },
 // ];

@@ -1,4 +1,4 @@
-[
+const final = [
   {
     "7211537468208860458": {
       authorId: "7155995379640157227",
@@ -809,3 +809,21 @@
     },
   },
 ];
+
+function convertToJSON(data) {
+  // Tworzenie obiektu, który będzie zawierał dane jako JSON
+  const jsonData = {};
+
+  for (const entry of data) {
+    for (const key in entry) {
+      jsonData[key] = entry[key];
+    }
+  }
+
+  // Przekształcenie obiektu w JSON i zwrócenie wyniku
+  return JSON.stringify(jsonData, null, 2); // Drugi argument (null) to funkcja do formatowania wcięć, 2 to liczba spacji wcięcia
+}
+
+// Przykład użycia funkcji
+const finalJSON = convertToJSON(final);
+console.log(finalJSON);
