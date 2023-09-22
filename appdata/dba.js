@@ -387,13 +387,37 @@ const dba = [
 // console.log(uniqueIds);
 
 //
-const extractedData = dba.flatMap((obj) =>
-  Object.values(obj).map((item) => ({
-    uniqueIds: item.uniqueIds,
-    nicknames: item.nicknames,
-    followerCount: item.followerCount,
-    heartCount: item.heartCount,
-    videoCount: item.videoCount,
-  }))
-);
-console.log(extractedData);
+// const extractedData = dba.flatMap((obj) =>
+//   Object.values(obj).map((item) => ({
+//     uniqueIds: item.uniqueIds,
+//     nicknames: item.nicknames,
+//     followerCount: item.followerCount,
+//     heartCount: item.heartCount,
+//     videoCount: item.videoCount,
+//   }))
+// );
+// console.log(extractedData);
+
+
+
+// wydobywa stringi z obiektu  uniqueIds i nicknames i przekształca je do klucza jak string
+
+const transformedDB = dba.map((item) => {
+  const transformedItem = {};
+
+  for (const key in item) {
+    if (Object.hasOwnProperty.call(item, key)) {
+      const { uniqueIds, nicknames, ...rest } = item[key];
+
+      transformedItem[key] = {
+        uniqueId: uniqueIds[0],
+        nickname: nicknames[0],
+        ...rest,
+      };
+    }
+  }
+
+  return transformedItem;
+});
+
+console.log(transformedDB);
